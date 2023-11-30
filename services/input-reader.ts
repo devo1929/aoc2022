@@ -7,22 +7,20 @@ const mainModuleName = path.basename(require.main!.filename, '.ts');
 
 export class InputReader {
 
-    readInput(lines: boolean = true): Promise<string | string[]> {
-        return this.readFile(path.join(inputsPath, `${mainModuleName}.txt`), lines);
+    readInput(): Promise<string[]> {
+        return this.readFile(path.join(inputsPath, `${mainModuleName}.txt`));
     }
 
-    readSampleInput(lines: boolean = true): Promise<string | string[]> {
-        return this.readFile(path.join(samplesPath, `${mainModuleName}.txt`), lines);
+    readSampleInput(): Promise<string[]> {
+        return this.readFile(path.join(samplesPath, `${mainModuleName}.txt`));
     }
 
-    private readFile(filePath: string, lines: boolean): Promise<string | string[]> {
+    private readFile(filePath: string): Promise<string[]> {
         return new Promise((resolve, reject) => {
             fs.readFile(filePath, 'utf-8', (err, data) => {
                 if (err)
                     return reject(err);
-                
-                data = data.trim();
-                return resolve(lines ? data.split('\r\n') : data);
+                return resolve(data.trim().split('\r\n'));
             });
         })
     }

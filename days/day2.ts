@@ -5,10 +5,10 @@ const inputReader = new InputReader();
 /**
  * day2
  */
-function main(): void {
+export function main(): void {
     inputReader.readInput().then(inputLines => {
-        part1(inputLines as string[]);
-        part2(inputLines as string[]);
+        part1(inputLines);
+        part2(inputLines);
     });
 }
 

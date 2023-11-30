@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "all": "ts-node days/all.ts",
     "test": "ts-node days/test.ts",
     "day1": "ts-node days/day1.ts",
     "day2": "ts-node days/day2.ts"

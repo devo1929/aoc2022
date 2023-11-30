@@ -5,9 +5,9 @@ const inputReader = new InputReader();
 /**
  * day1
  */
-function main(): void {
-    inputReader.readInput(true).then((calories: string | string[]) => {
-        const elves = toElves(calories as string[]);
+export function main(): void {
+    inputReader.readInput().then((calories: string[]) => {
+        const elves = toElves(calories);
         part1(elves);
         part2(elves);
     });
